@@ -16,25 +16,25 @@ export default function Login(props: loginProps) {
 	const [username, onSetUser] = useState("");
 	const [password, onSetPass] = useState("");
 
-	async function login(e: Event) {
+	async function login() {
 		await storage.save({
 			key: 'username',
 			data: {
-				username
+				user: username
 			},
 			expires: null
 		});
 		await storage.save({
 			key: 'password',
 			data: {
-				password
+				pass: password
 			},
 			expires: null
 		});
 		await storage.save({
 			key: 'schoolId',
 			data: {
-				school
+				sch: school
 			},
 			expires: null
 		});
@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		width: '100%',
 		justifyContent: "center",
+		alignItems: "center"
 	},
 	input: {
 		borderStyle: "solid",
@@ -80,6 +81,7 @@ const styles = StyleSheet.create({
 		paddingLeft: 10,
 		paddingRight: 10,
 		margin: 5,
+		width: "50%"
 	},
 	text: {
 		fontSize: 50,
