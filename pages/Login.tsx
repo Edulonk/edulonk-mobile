@@ -11,7 +11,7 @@ export default function Login() {
 		<View style={styles.container}>
 			<Text style={styles.text}>Login</Text>
 			<TextInput placeholder="Username" style={styles.input}></TextInput>
-			<TextInput placeholder="Password" style={styles.input}></TextInput>
+			<TextInput placeholder="Password" style={styles.input} textContentType="password" secureTextEntry={true}></TextInput>
 			<Button button={loginButtonProps} style={styles.button}/>
 		</View>
 	)
