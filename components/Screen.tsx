@@ -3,7 +3,6 @@ import {Text, View} from "react-native";
 
 export type ScreenParams = {
 	screen: number,
-	changeScreen: React.Dispatch<React.SetStateAction<number>>,
 	children?: React.ReactNode[]
 }
 

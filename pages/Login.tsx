@@ -1,21 +1,68 @@
-import {StyleSheet, Text, View, TextInput, ButtonProps} from "react-native";
-import React from "react";
-import Button from "../components/Button";
+import {StyleSheet, Text, View, TextInput, Button} from "react-native";
+import React, {useState} from "react";
+import storage from "../storage/storage";
+import {Edulink} from "edulinkone-api";
 
-let loginButtonProps: ButtonProps = {
-	title: "Log In"
+
+export let edulink: Edulink;
+
+
+type loginProps = {
+	changeScreen: React.Dispatch<React.SetStateAction<number>>,
 }
 
-export default function Login() {
+export default function Login(props: loginProps) {
+	const [school, onSetSchool] = useState("");
+	const [username, onSetUser] = useState("");
+	const [password, onSetPass] = useState("");
+
+	async function login(e: Event) {
+		await storage.save({
+			key: 'username',
+			data: {
+				username
+			},
+			expires: null
+		});
+		await storage.save({
+			key: 'password',
+			data: {
+				password
+			},
+			expires: null
+		});
+		await storage.save({
+			key: 'schoolId',
+			data: {
+				school
+			},
+			expires: null
+		});
+
+		edulink = new Edulink(school, username, password, 2);
+		console.log(0)
+		await edulink.Authenticate();
+		console.log(1)
+		if (edulink.isAuthenticated) {
+			props.changeScreen(1);
+		}
+
+	}
+
 	return (
 		<View style={styles.container}>
 			<Text style={styles.text}>Login</Text>
-			<TextInput placeholder="Username" style={styles.input}></TextInput>
-			<TextInput placeholder="Password" style={styles.input} textContentType="password" secureTextEntry={true}></TextInput>
-			<Button button={loginButtonProps} style={styles.button}/>
+			<TextInput placeholder="School Id" style={styles.input} onChangeText={onSetSchool}></TextInput>
+			<TextInput placeholder="Username" style={styles.input} onChangeText={onSetUser}></TextInput>
+			<TextInput placeholder="Password" style={styles.input} textContentType="password" secureTextEntry={true} onChangeText={onSetPass}></TextInput>
+			<View style={styles.button}>
+				<Button title={"log in"} onPress={login}/>
+			</View>
 		</View>
 	)
 }
+
+
 
 const styles = StyleSheet.create({
 	container: {
