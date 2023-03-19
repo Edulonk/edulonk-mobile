@@ -1,9 +1,8 @@
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import React, {useEffect, useState} from "react";
 import TimetableBox from "../components/TimetableBox";
 import HomeworkBox from "../components/HomeworkBox";
 import storage from "../storage/storage";
-import {edulink} from "./Login";
 
 
 export default function Home() {
@@ -21,7 +20,7 @@ export default function Home() {
 		<View style={styles.home}>
 			<View style={styles.box1}>
 				<Text style={styles.h1}>Hello {username}</Text>
-				<Text>15th March 2023</Text>
+				<Text style={styles.name}>15th March 2023</Text>
 			</View>
 			<TimetableBox />
 			<HomeworkBox />
@@ -35,7 +34,8 @@ const styles = StyleSheet.create({
 		display: "flex",
 		flex: 1,
 		flexDirection: "column",
-		marginLeft: 0
+		marginLeft: 0,
+		backgroundColor: "#F2F2F2"
 	},
 	box1: {
 		width: "100%",
@@ -47,19 +47,20 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		borderRadius: 15,
 		margin: "5%",
-		backgroundColor: "#000000"
+		borderColor: "#4285F4"
 	}, box3: {
 		width: "auto",
 		height: "30%",
 		borderWidth: 1,
 		borderRadius: 15,
 		margin: "5%",
-		backgroundColor: "#000000"
+		backgroundColor: "#4285F4"
 	},
 	h1: {
-		fontSize: 50
-	}, p:{
-		color: "#ffffff",
+		fontSize: 50,
+		color: "#333333"
+	}, name:{
+		color: "#333333",
 		fontSize: 18
 	}
 })

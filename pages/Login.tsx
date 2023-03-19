@@ -40,9 +40,7 @@ export default function Login(props: loginProps) {
 		});
 
 		edulink = new Edulink(school, username, password, 2);
-		console.log(0)
 		await edulink.Authenticate();
-		console.log(1)
 		if (edulink.isAuthenticated) {
 			props.changeScreen(1);
 		}
@@ -56,7 +54,7 @@ export default function Login(props: loginProps) {
 			<TextInput placeholder="Username" style={styles.input} onChangeText={onSetUser}></TextInput>
 			<TextInput placeholder="Password" style={styles.input} textContentType="password" secureTextEntry={true} onChangeText={onSetPass}></TextInput>
 			<View style={styles.button}>
-				<Button title={"log in"} onPress={login}/>
+				<Button title={"log in"} onPress={login} color={"#4285F4"}/>
 			</View>
 		</View>
 	)
@@ -69,7 +67,8 @@ const styles = StyleSheet.create({
 		flex: 1,
 		width: '100%',
 		justifyContent: "center",
-		alignItems: "center"
+		alignItems: "center",
+		backgroundColor: "#F2F2F2"
 	},
 	input: {
 		borderStyle: "solid",

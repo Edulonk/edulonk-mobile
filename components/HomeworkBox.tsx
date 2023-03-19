@@ -4,8 +4,8 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 export default function HomeworkBox() {
 	return (
 		<View style={styles.box}>
-			<FontAwesome name="briefcase" color="#ffffff" size={75} />
-			<Text style={styles.p}>Homework</Text>
+			<FontAwesome name="briefcase" color="#F2F2F2" size={75} />
+			<Text style={styles.name}>Homework</Text>
 		</View>
 	)
 }
@@ -17,11 +17,12 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		borderRadius: 15,
 		margin: "5%",
-		backgroundColor: "#000000",
+		backgroundColor: "#4285F4",
 		alignItems: "center",
-		justifyContent: "center"
+		justifyContent: "center",
+		borderColor: "#4285F4"
 	},
-	p: {
-		color: "#ffffff"
+	name: {
+		color: "#F2F2F2"
 	}
 })
