@@ -10,7 +10,7 @@ export function Homework() {
 			setHomework(data.toString());
 		}
 		getHomework();
-	}, [])
+	}, []);
 
 
 	return (
