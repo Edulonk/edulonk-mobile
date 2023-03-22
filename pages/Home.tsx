@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, {useEffect, useState} from "react";
-import TimetableBox from "../components/TimetableBox";
-import HomeworkBox from "../components/HomeworkBox";
+import TimetableBox from "../components/home/TimetableBox";
+import HomeworkBox from "../components/home/HomeworkBox";
 import storage from "../storage/storage";
 
 type prop = {

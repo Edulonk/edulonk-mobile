@@ -1,18 +1,17 @@
-import {StyleSheet, Text, View, TouchableHighlight} from "react-native";
+import {StyleSheet, Text, TouchableHighlight, View} from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import {edulink} from "../pages/Login";
 import React from "react";
 
-type timetableProps = {
-	changeScreen: React.Dispatch<React.SetStateAction<number>>
+type homeworkProps = {
+	changeScreen: React.Dispatch<React.SetStateAction<number>>,
 }
 
-export default function TimetableBox(props: timetableProps) {
+export default function HomeworkBox(props: homeworkProps) {
 	return (
-		<TouchableHighlight style={styles.box} underlayColor={"#A0C2FF"} onPress={() => {props.changeScreen(2)}}>
+		<TouchableHighlight style={styles.box} underlayColor={"#A0C2FF"} onPress={() => {props.changeScreen(3)}}>
 			<View style={styles.container}>
-				<FontAwesome name="clock-o" color="#F2F2F2" size={65} />
-				<Text style={styles.name}>Timetable</Text>
+				<FontAwesome name="briefcase" color="#F2F2F2" size={75} />
+				<Text style={styles.name}>Homework</Text>
 			</View>
 		</TouchableHighlight>
 	)
