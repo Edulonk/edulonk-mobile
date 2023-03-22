@@ -1,18 +1,18 @@
 import {StyleSheet, Text, View, TouchableHighlight} from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import {edulink} from "../pages/Login";
+import React from "react";
 
-export default function TimetableBox() {
+type timetableProps = {
+	changeScreen: React.Dispatch<React.SetStateAction<number>>
+}
+
+export default function TimetableBox(props: timetableProps) {
 	return (
-		<TouchableHighlight style={styles.box} underlayColor={"#A0C2FF"}>
-			<View style={styles.margin}>
-				<View style={styles.container}>
-					<FontAwesome name="clock-o" color="#F2F2F2" size={65} />
-					<Text style={styles.name}>Timetable</Text>
-				</View>
-				<View>
-					<Text>Today</Text>
-				</View>
+		<TouchableHighlight style={styles.box} underlayColor={"#A0C2FF"} onPress={() => {props.changeScreen(2)}}>
+			<View style={styles.container}>
+				<FontAwesome name="clock-o" color="#F2F2F2" size={65} />
+				<Text style={styles.name}>Timetable</Text>
 			</View>
 		</TouchableHighlight>
 	)
@@ -26,22 +26,19 @@ const styles = StyleSheet.create({
 		borderRadius: 15,
 		margin: "5%",
 		backgroundColor: "#4285F4",
-		// alignItems: "center",
-		// justifyContent: "center",
+		alignItems: "center",
+		justifyContent: "center",
 		borderColor: "#4285F4",
 	},
-	container: {
-		display: "flex",
-		flexDirection: "row",
+	container:  {
+		alignItems: "center",
+		justifyContent: "center"
 	},
 	margin: {
 		marginLeft: "3%",
-		marginTop: "3%",
 	},
 	name: {
 		fontSize: 20,
 		color: "#F2F2F2",
-		position: "absolute",
-		transform: [{translateX: 60}, {translateY: 15}]
 	}
 })

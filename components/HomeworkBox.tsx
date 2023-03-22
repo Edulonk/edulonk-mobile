@@ -1,12 +1,19 @@
-import {StyleSheet, Text, View} from "react-native";
+import {StyleSheet, Text, TouchableHighlight, View} from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import React from "react";
 
-export default function HomeworkBox() {
+type homeworkProps = {
+	changeScreen: React.Dispatch<React.SetStateAction<number>>,
+}
+
+export default function HomeworkBox(props: homeworkProps) {
 	return (
-		<View style={styles.box}>
-			<FontAwesome name="briefcase" color="#F2F2F2" size={75} />
-			<Text style={styles.name}>Homework</Text>
-		</View>
+		<TouchableHighlight style={styles.box} underlayColor={"#A0C2FF"} onPress={() => {props.changeScreen(3)}}>
+			<View>
+				<FontAwesome name="briefcase" color="#F2F2F2" size={75} />
+				<Text style={styles.name}>Homework</Text>
+			</View>
+		</TouchableHighlight>
 	)
 }
 

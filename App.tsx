@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Screen from "./components/Screen";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
+import Timetable from "./pages/Timetable";
+import {Homework} from "./pages/Homework";
 
 
 export default function App() {
@@ -13,7 +15,9 @@ export default function App() {
 		<View style={styles.container}>
 			<Screen screen={screen}>
 				<Login changeScreen={changeScreen} />
-				<Home />
+				<Home changeScreen={changeScreen}/>
+				<Timetable />
+				<Homework />
 			</Screen>
 			<StatusBar style="auto" />
 		</View>

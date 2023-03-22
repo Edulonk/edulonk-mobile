@@ -4,8 +4,11 @@ import TimetableBox from "../components/TimetableBox";
 import HomeworkBox from "../components/HomeworkBox";
 import storage from "../storage/storage";
 
+type prop = {
+	changeScreen: React.Dispatch<React.SetStateAction<number>>
+}
 
-export default function Home() {
+export default function Home(props: prop) {
 	const [username, setUsername] = useState("");
 	useEffect(() => {
 		async function getUsername() {
@@ -22,8 +25,8 @@ export default function Home() {
 				<Text style={styles.h1}>Hello {username}</Text>
 				<Text style={styles.name}>15th March 2023</Text>
 			</View>
-			<TimetableBox />
-			<HomeworkBox />
+			<TimetableBox changeScreen={props.changeScreen}/>
+			<HomeworkBox changeScreen={props.changeScreen}/>
 		</View>
 	);
 }
