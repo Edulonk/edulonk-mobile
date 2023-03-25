@@ -8,7 +8,7 @@ type homeworkProps = {
 
 export default function HomeworkBox(props: homeworkProps) {
 	return (
-		<TouchableHighlight style={styles.box} underlayColor={"#A0C2FF"} onPress={() => {props.changeScreen(3)}}>
+		<TouchableHighlight style={styles.lesson} underlayColor={"#A0C2FF"} onPress={() => {props.changeScreen(3)}}>
 			<View style={styles.container}>
 				<FontAwesome name="briefcase" color="#F2F2F2" size={75} />
 				<Text style={styles.name}>Homework</Text>
@@ -18,7 +18,7 @@ export default function HomeworkBox(props: homeworkProps) {
 }
 
 const styles = StyleSheet.create({
-	box: {
+	lesson: {
 		width: "auto",
 		height: "30%",
 		borderWidth: 1,
