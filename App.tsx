@@ -7,9 +7,6 @@ import Home from "./pages/Home";
 import Timetable from "./pages/Timetable";
 import {Homework} from "./pages/Homework";
 
-import {AppRegistry} from "react-native";
-AppRegistry.registerHeadlessTask('homework', () => require('./tasks/getHomework'))
-
 export default function App() {
 	const [screen, changeScreen] = useState(0);
 
