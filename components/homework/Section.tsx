@@ -1,5 +1,5 @@
 import {Homework} from "edulinkone-api/build/types/result";
-import {StyleSheet, View} from "react-native";
+import {ScrollView, StyleSheet} from "react-native";
 import React from "react";
 import Task from "./Task";
 
@@ -21,9 +21,9 @@ export default function Section(props: SectionProps) {
 	}
 
 	return(
-		<View style={styles.Section}>
+		<ScrollView style={styles.Section}>
 			{tasks}
-		</View>
+		</ScrollView>
 	)
 }
 
