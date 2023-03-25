@@ -36,7 +36,11 @@ export function Homework(props: {changeScreen: React.Dispatch<React.SetStateActi
 	}, []);
 
 	if(!isReady) {
-		return null;
+		return (
+			<View style={styles.loading}>
+				<Text>LOADING . . . </Text>
+			</View>
+		);
 	}
 
 	return (
@@ -85,5 +89,11 @@ const styles = StyleSheet.create({
 		paddingBottom: "2%",
 		fontSize: 18,
 		fontWeight: "bold"
+	},
+	loading: {
+		justifyContent: "center",
+		alignItems: "center",
+		width: "100%",
+		height: "100%"
 	}
 })
