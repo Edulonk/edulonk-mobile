@@ -27,7 +27,7 @@ export default function Day(props: DayProps) {
 
 	return (
 		<View style={styles.Day}>
-			<Text style={styles.text}>{props.day.name}</Text>
+			<Text style={styles.text}>{props.day.name} {props.day.date}</Text>
 			{lessons}
 		</View>
 	);
