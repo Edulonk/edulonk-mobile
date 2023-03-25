@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
+import {View, Text, StyleSheet, Button, ScrollView} from 'react-native';
 import {edulink} from "./Login";
 import storage from "../storage/storage";
 import Section from "../components/homework/Section";
 
-export function Homework() {
-	let [homework, setHomework] = useState([]);
+export function Homework(props: {changeScreen: React.Dispatch<React.SetStateAction<number>>}) {
+	let [currentHomework, setCurrentHomework] = useState([]);
+	let [pastHomework, setPastHomework] = useState([]);
 	let [username, setUsername] = useState(null);
 	let [isReady, makeReady] = useState(false);
 	useEffect(() => {
@@ -13,7 +14,11 @@ export function Homework() {
 			try {
 				let data = await edulink.getCurrentHomework();
 				// @ts-ignore
-				setHomework(data);
+				setCurrentHomework(data);
+
+				let data1 = await edulink.getPastHomework();
+				// @ts-ignore
+				setPastHomework(data1);
 
 				await storage.load({
 					key: 'username'
@@ -37,12 +42,15 @@ export function Homework() {
 	return (
 		<View style={styles.container}>
 			<View style={styles.box1}>
-				<Button title={"Back"} />
+				<Button title={"Back"} onPress={() => props.changeScreen(1)}/>
 				<Text style={styles.h2}>Homework: {username ?? "12x34567"}</Text>
 			</View>
-			<View style={styles.box2}>
-				<Section homework={homework} />
-			</View>
+			<ScrollView style={styles.box2}>
+				<Text style={styles.text}>Current</Text>
+				<Section homework={currentHomework} />
+				<Text style={styles.text}>Past</Text>
+				<Section homework={pastHomework} />
+			</ScrollView>
 
 		</View>
 	)
@@ -73,4 +81,9 @@ const styles = StyleSheet.create({
 		fontSize: 25,
 		color: "#333333",
 	},
+	text: {
+		paddingBottom: "2%",
+		fontSize: 18,
+		fontWeight: "bold"
+	}
 })

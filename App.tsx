@@ -17,7 +17,7 @@ export default function App() {
 				<Login changeScreen={changeScreen} />
 				<Home changeScreen={changeScreen} />
 				<Timetable changeScreen={changeScreen} />
-				<Homework />
+				<Homework changeScreen={changeScreen} />
 			</Screen>
 			<StatusBar style="auto" />
 		</View>

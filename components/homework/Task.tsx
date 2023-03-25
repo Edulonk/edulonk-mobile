@@ -1,10 +1,12 @@
 import {StyleSheet, Text, View} from "react-native";
+import {Homework} from "edulinkone-api/build/types/result";
 
 type TaskProps = {
 	dueDate: string,
 	name: string,
 	class: string,
-	completed: boolean
+	completed: boolean,
+	raw: Homework
 }
 
 let colours = ["#DB4437", "#0F9D58"]
