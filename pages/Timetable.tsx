@@ -18,9 +18,9 @@ export default function Timetable(props: {changeScreen: React.Dispatch<React.Set
 				setTimetable(result.days);
 
 				await storage.load({
-					key: 'username'
+					key: 'loginData'
 				}).then(data => {
-					setUsername(data.user)
+					setUsername(data.username)
 				});
 			} catch (e) {
 				console.warn(e);

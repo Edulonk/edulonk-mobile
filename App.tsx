@@ -14,24 +14,32 @@ import {edulink, createEdulink} from "./helper/edulinkHelp";
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-	const [screen, changeScreen] = useState(1);
+	const [screen, changeScreen] = useState(0);
 
 	// hide the checking of user data behind loading screen
 	const [appIsReady, setAppIsReady] = useState(false);
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
+	const [schoolId, setSchoolId] = useState("");
+	const [logged, setLogged] = useState(true);
 
 	useEffect(() => {
-		async function getUsername() {
+
+		async function checkData() {
 			await storage.load({
-				key: 'username'
-			}).then(data => {return data;});
+				key: 'loginData'
+			}).then(data => {
+				setUsername(data.username);
+				setPassword(data.password);
+				setSchoolId(data.schoolId);
+			})
 		}
 
 		async function prepare() {
 			try {
-				let username = await getUsername();
+				await checkData();
 			} catch (e) {
-				console.warn(e);
-				changeScreen(0);
+				setLogged(false);
 			} finally {
 				// Tell the application to render
 				setAppIsReady(true);
@@ -59,7 +67,7 @@ export default function App() {
 	return (
 		<View style={styles.container} onLayout={onLayoutRootView}>
 			<Screen screen={screen}>
-				<Login changeScreen={changeScreen} />
+				<Login changeScreen={changeScreen} quickLog={{login: logged, username, password, schoolId}}/>
 				<Home changeScreen={changeScreen} />
 				<Timetable changeScreen={changeScreen} />
 				<Homework changeScreen={changeScreen} />

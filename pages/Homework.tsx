@@ -21,9 +21,9 @@ export function Homework(props: {changeScreen: React.Dispatch<React.SetStateActi
 				// setPastHomework(data1);
 
 				await storage.load({
-					key: 'username'
+					key: 'loginData'
 				}).then(data => {
-					setUsername(data.user)
+					setUsername(data.username)
 				});
 			} catch (e) {
 				console.warn(e);
