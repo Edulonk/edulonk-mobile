@@ -6,7 +6,7 @@ import Section from "../components/homework/Section";
 
 export function Homework(props: {changeScreen: React.Dispatch<React.SetStateAction<number>>}) {
 	let [currentHomework, setCurrentHomework] = useState([]);
-	let [pastHomework, setPastHomework] = useState([]);
+	// let [pastHomework, setPastHomework] = useState([]);
 	let [username, setUsername] = useState(null);
 	let [isReady, makeReady] = useState(false);
 	useEffect(() => {
@@ -16,9 +16,9 @@ export function Homework(props: {changeScreen: React.Dispatch<React.SetStateActi
 				// @ts-ignore
 				setCurrentHomework(data);
 
-				let data1 = await edulink.getPastHomework();
-				// @ts-ignore
-				setPastHomework(data1);
+				// let data1 = await edulink.getPastHomework();
+				// // @ts-ignore
+				// setPastHomework(data1);
 
 				await storage.load({
 					key: 'username'
@@ -52,8 +52,8 @@ export function Homework(props: {changeScreen: React.Dispatch<React.SetStateActi
 			<ScrollView style={styles.box2}>
 				<Text style={styles.text}>Current</Text>
 				<Section homework={currentHomework} />
-				<Text style={styles.text}>Past</Text>
-				<Section homework={pastHomework} />
+				{/*<Text style={styles.text}>Past</Text>*/}
+				{/*<Section homework={pastHomework} />*/}
 			</ScrollView>
 
 		</View>
