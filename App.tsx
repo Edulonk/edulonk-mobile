@@ -18,7 +18,7 @@ export default function App() {
 	const [appIsReady, setAppIsReady] = useState(false);
 
 	useEffect(() => {
-		async function getUsername() {
+		async function checkData() {
 			await storage.load({
 				key: 'username'
 			}).then(data => {return data;});
@@ -26,7 +26,7 @@ export default function App() {
 
 		async function prepare() {
 			try {
-				await getUsername();
+				await checkData();
 			} catch (e) {
 				console.warn(e);
 				changeScreen(0);
