@@ -37,7 +37,6 @@ export default function App() {
 			try {
 				await checkData();
 			} catch (e) {
-				console.warn(e);
 				setLogged(false);
 			} finally {
 				// Tell the application to render
