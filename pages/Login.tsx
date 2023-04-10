@@ -22,7 +22,7 @@ export default function Login(props: loginProps) {
 	const [username, onSetUser] = useState("");
 	const [password, onSetPass] = useState("");
 
-	if (props.quickLog.login === true) {
+	if (props.quickLog.login) {
 		console.warn(props);
 		useEffect(()=> {
 			async function login() {
