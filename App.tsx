@@ -26,13 +26,13 @@ export default function App() {
 		async function checkData() {
 		 	await storage.load({
 				key: 'username'
-			}).then(data => {setUsername(data)});
+			}).then(data => {setUsername(data.user)});
 		 	await storage.load({
 				key: 'password'
-			}).then(data => {setPassword(data)});
+			}).then(data => {setPassword(data.pass)});
 			await storage.load({
 				key: 'schoolId'
-			}).then(data => {setSchoolId(data)});
+			}).then(data => {setSchoolId(data.sch)});
 		}
 
 		async function prepare() {
