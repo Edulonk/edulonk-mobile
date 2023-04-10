@@ -38,23 +38,11 @@ export default function Login(props: loginProps) {
 	} else {
 		async function login() {
 			await storage.save({
-				key: 'username',
+				key: "loginData",
 				data: {
-					user: username
-				},
-				expires: null
-			});
-			await storage.save({
-				key: 'password',
-				data: {
-					pass: password
-				},
-				expires: null
-			});
-			await storage.save({
-				key: 'schoolId',
-				data: {
-					sch: schoolId
+					username: username,
+					password: password,
+					schoolId: schoolId
 				},
 				expires: null
 			});
