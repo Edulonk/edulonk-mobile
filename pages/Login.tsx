@@ -22,6 +22,7 @@ export default function Login(props: loginProps) {
 	const [schoolId, onSetSchoolId] = useState("");
 	const [username, onSetUser] = useState("");
 	const [password, onSetPass] = useState("");
+	const [remember, toggleRemember] = useState(false);
 
 	if (props.quickLog.login) {
 		console.warn(props);
@@ -63,7 +64,11 @@ export default function Login(props: loginProps) {
 				<TextInput placeholder="Username" style={styles.input} onChangeText={onSetUser}></TextInput>
 				<TextInput placeholder="Password" style={styles.input} textContentType="password" secureTextEntry={true} onChangeText={onSetPass}></TextInput>
 				<View>
-					<Checkbox/>
+					<Checkbox
+					value={remember}
+					onValueChange={toggleRemember}
+					color={remember ? '#4285F4' : undefined}
+					/>
 					<Text>Remember me?</Text>
 				</View>
 				<View style={styles.button}>
