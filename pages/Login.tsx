@@ -24,7 +24,6 @@ export default function Login(props: loginProps) {
 	const [remember, toggleRemember] = useState(false);
 
 	if (props.quickLog.login) {
-		console.warn(props);
 		useEffect(()=> {
 			async function login() {
 				edulink = new Edulink(props.quickLog.schoolId, props.quickLog.username, props.quickLog.password, 2);
