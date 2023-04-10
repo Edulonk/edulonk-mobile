@@ -18,7 +18,7 @@ type loginProps = {
 }
 
 export default function Login(props: loginProps) {
-	const [school, onSetSchool] = useState("");
+	const [schoolId, onSetSchoolId] = useState("");
 	const [username, onSetUser] = useState("");
 	const [password, onSetPass] = useState("");
 
@@ -40,12 +40,12 @@ export default function Login(props: loginProps) {
 		await storage.save({
 			key: 'schoolId',
 			data: {
-				sch: school
+				sch: schoolId
 			},
 			expires: null
 		});
 
-		edulink = new Edulink(school, username, password, 2);
+		edulink = new Edulink(schoolId, username, password, 2);
 		await edulink.Authenticate();
 		if (edulink.isAuthenticated) {
 			props.changeScreen(1);
@@ -56,7 +56,7 @@ export default function Login(props: loginProps) {
 	return (
 		<View style={styles.container}>
 			<Text style={styles.text}>Login</Text>
-			<TextInput placeholder="School Id" style={styles.input} onChangeText={onSetSchool}></TextInput>
+			<TextInput placeholder="School Id" style={styles.input} onChangeText={onSetSchoolId}></TextInput>
 			<TextInput placeholder="Username" style={styles.input} onChangeText={onSetUser}></TextInput>
 			<TextInput placeholder="Password" style={styles.input} textContentType="password" secureTextEntry={true} onChangeText={onSetPass}></TextInput>
 			<View style={styles.button}>
