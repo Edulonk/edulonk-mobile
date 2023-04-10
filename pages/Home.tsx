@@ -13,8 +13,8 @@ export default function Home(props: prop) {
 	useEffect(() => {
 		async function getUsername() {
 			await storage.load({
-				key: 'username'
-			}).then(data => {setUsername(data.user)});
+				key: 'loginData'
+			}).then(data => {setUsername(data.username)});
 		}
 		getUsername();
 	}, []);
