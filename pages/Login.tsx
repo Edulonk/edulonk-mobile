@@ -68,7 +68,7 @@ export default function Login(props: loginProps) {
 					<Checkbox
 					value={remember}
 					onValueChange={toggleRemember}
-					color={remember ? '#4285F4' : undefined}
+					color={remember ? '#' : undefined}
 					/>
 					<Text>Remember me?</Text>
 				</View>
