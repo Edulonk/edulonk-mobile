@@ -9,6 +9,12 @@ export let edulink: Edulink;
 
 type loginProps = {
 	changeScreen: React.Dispatch<React.SetStateAction<number>>,
+	quickLog: {
+		login: boolean,
+		username: string,
+		password: string,
+		schoolId: string
+	}
 }
 
 export default function Login(props: loginProps) {
