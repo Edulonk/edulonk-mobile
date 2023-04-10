@@ -1,5 +1,5 @@
 import {StyleSheet, Text, View, TextInput, Button} from "react-native";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import storage from "../storage/storage";
 import {Edulink} from "edulinkone-api";
 
@@ -23,6 +23,16 @@ export default function Login(props: loginProps) {
 	const [password, onSetPass] = useState("");
 
 	if (props.quickLog.login) {
+		useEffect(()=> {
+			async function login() {
+				edulink = new Edulink(props.quickLog.schoolId, props.quickLog.username, props.quickLog.password, 2);
+				await edulink.Authenticate();
+				if (edulink.isAuthenticated) {
+					props.changeScreen(1);
+				}
+			}
+			login()
+		})
 		//placeholder
 		return null;
 	} else {
