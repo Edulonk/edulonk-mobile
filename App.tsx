@@ -22,6 +22,12 @@ export default function App() {
 			await storage.load({
 				key: 'username'
 			}).then(data => {return data;});
+			await storage.load({
+				key: 'password'
+			}).then(data => {return data;});
+			await storage.load({
+				key: 'schoolId'
+			}).then(data => {return data;});
 		}
 
 		async function prepare() {
