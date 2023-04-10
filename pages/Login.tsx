@@ -39,6 +39,8 @@ export default function Login(props: loginProps) {
 		return null;
 	} else {
 		async function login() {
+			let expires: number | null = (remember ? null : 120000);
+
 			await storage.save({
 				key: "loginData",
 				data: {
@@ -46,7 +48,7 @@ export default function Login(props: loginProps) {
 					password: password,
 					schoolId: schoolId
 				},
-				expires: null
+				expires: expires
 			});
 
 			edulink = new Edulink(schoolId, username, password, 2);
