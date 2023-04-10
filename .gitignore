@@ -19,3 +19,5 @@ web-build/
 .metro-health-check*
 
 credentials.json
+
+android/keystores/release.keystore
