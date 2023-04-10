@@ -19,6 +19,7 @@ export default function App() {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [schoolId, setSchoolId] = useState("");
+	const [logged, setLogged] = useState(true);
 
 	useEffect(() => {
 
@@ -39,7 +40,7 @@ export default function App() {
 				await checkData();
 			} catch (e) {
 				console.warn(e);
-				changeScreen(0);
+				setLogged(false);
 			} finally {
 				// Tell the application to render
 				setAppIsReady(true);
