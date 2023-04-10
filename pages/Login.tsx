@@ -22,48 +22,53 @@ export default function Login(props: loginProps) {
 	const [username, onSetUser] = useState("");
 	const [password, onSetPass] = useState("");
 
-	async function login() {
-		await storage.save({
-			key: 'username',
-			data: {
-				user: username
-			},
-			expires: null
-		});
-		await storage.save({
-			key: 'password',
-			data: {
-				pass: password
-			},
-			expires: null
-		});
-		await storage.save({
-			key: 'schoolId',
-			data: {
-				sch: schoolId
-			},
-			expires: null
-		});
+	if (props.quickLog.login) {
+		//placeholder
+		return null;
+	} else {
+		async function login() {
+			await storage.save({
+				key: 'username',
+				data: {
+					user: username
+				},
+				expires: null
+			});
+			await storage.save({
+				key: 'password',
+				data: {
+					pass: password
+				},
+				expires: null
+			});
+			await storage.save({
+				key: 'schoolId',
+				data: {
+					sch: schoolId
+				},
+				expires: null
+			});
 
-		edulink = new Edulink(schoolId, username, password, 2);
-		await edulink.Authenticate();
-		if (edulink.isAuthenticated) {
-			props.changeScreen(1);
+			edulink = new Edulink(schoolId, username, password, 2);
+			await edulink.Authenticate();
+			if (edulink.isAuthenticated) {
+				props.changeScreen(1);
+			}
+
 		}
 
-	}
-
-	return (
-		<View style={styles.container}>
-			<Text style={styles.text}>Login</Text>
-			<TextInput placeholder="School Id" style={styles.input} onChangeText={onSetSchoolId}></TextInput>
-			<TextInput placeholder="Username" style={styles.input} onChangeText={onSetUser}></TextInput>
-			<TextInput placeholder="Password" style={styles.input} textContentType="password" secureTextEntry={true} onChangeText={onSetPass}></TextInput>
-			<View style={styles.button}>
-				<Button title={"log in"} onPress={login} color={"#4285F4"}/>
+		return (
+			<View style={styles.container}>
+				<Text style={styles.text}>Login</Text>
+				<TextInput placeholder="School Id" style={styles.input} onChangeText={onSetSchoolId}></TextInput>
+				<TextInput placeholder="Username" style={styles.input} onChangeText={onSetUser}></TextInput>
+				<TextInput placeholder="Password" style={styles.input} textContentType="password" secureTextEntry={true} onChangeText={onSetPass}></TextInput>
+				<View style={styles.button}>
+					<Button title={"log in"} onPress={login} color={"#4285F4"}/>
+				</View>
 			</View>
-		</View>
-	)
+		)
+	}
 }
 
 
