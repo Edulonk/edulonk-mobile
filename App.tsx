@@ -18,14 +18,18 @@ export default function App() {
 	const [appIsReady, setAppIsReady] = useState(false);
 
 	useEffect(() => {
+		let username: string;
+		let password: string;
+		let schoolId: string;
+
 		async function checkData() {
-			await storage.load({
+			username = await storage.load({
 				key: 'username'
 			}).then(data => {return data;});
-			await storage.load({
+			password = await storage.load({
 				key: 'password'
 			}).then(data => {return data;});
-			await storage.load({
+			schoolId = await storage.load({
 				key: 'schoolId'
 			}).then(data => {return data;});
 		}
