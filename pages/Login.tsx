@@ -63,7 +63,7 @@ export default function Login(props: loginProps) {
 				<TextInput placeholder="School Id" style={styles.input} onChangeText={onSetSchoolId}></TextInput>
 				<TextInput placeholder="Username" style={styles.input} onChangeText={onSetUser}></TextInput>
 				<TextInput placeholder="Password" style={styles.input} textContentType="password" secureTextEntry={true} onChangeText={onSetPass}></TextInput>
-				<View>
+				<View style={styles.checkboxContainer}>
 					<Checkbox
 					value={remember}
 					onValueChange={toggleRemember}
@@ -109,5 +109,12 @@ const styles = StyleSheet.create({
 	},
 	button: {
 		width: "50%",
+	},
+	checkboxContainer: {
+		height: "auto",
+		flexDirection: "row",
+		gap: 10,
+		paddingBottom: 10,
+		paddingTop: 5
 	}
 });
