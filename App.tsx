@@ -16,22 +16,22 @@ export default function App() {
 
 	// hide the checking of user data behind loading screen
 	const [appIsReady, setAppIsReady] = useState(false);
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
+	const [schoolId, setSchoolId] = useState("");
 
 	useEffect(() => {
-		let username: string;
-		let password: string;
-		let schoolId: string;
 
 		async function checkData() {
-			username = await storage.load({
+		 	await storage.load({
 				key: 'username'
-			}).then(data => {return data;});
-			password = await storage.load({
+			}).then(data => {setUsername(data)});
+		 	await storage.load({
 				key: 'password'
-			}).then(data => {return data;});
-			schoolId = await storage.load({
+			}).then(data => {setPassword(data)});
+			await storage.load({
 				key: 'schoolId'
-			}).then(data => {return data;});
+			}).then(data => {setSchoolId(data)});
 		}
 
 		async function prepare() {
