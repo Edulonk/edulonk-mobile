@@ -68,7 +68,7 @@ export default function App() {
 	return (
 		<View style={styles.container} onLayout={onLayoutRootView}>
 			<Screen screen={screen}>
-				<Login changeScreen={changeScreen} />
+				<Login changeScreen={changeScreen} quickLog={{login: logged, username, password, schoolId}}/>
 				<Home changeScreen={changeScreen} />
 				<Timetable changeScreen={changeScreen} />
 				<Homework changeScreen={changeScreen} />
