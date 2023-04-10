@@ -1,12 +1,11 @@
 import {StyleSheet, Text, View, TextInput, Button} from "react-native";
 import React, {useEffect, useState} from "react";
 import storage from "../storage/storage";
+
 import {Edulink} from "edulinkone-api";
 import {Checkbox} from "expo-checkbox";
 
-
 export let edulink: Edulink;
-
 
 type loginProps = {
 	changeScreen: React.Dispatch<React.SetStateAction<number>>,

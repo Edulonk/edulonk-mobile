@@ -8,6 +8,8 @@ import Home from "./pages/Home";
 import Timetable from "./pages/Timetable";
 import {Homework} from "./pages/Homework";
 import storage from "./storage/storage";
+import {edulink, createEdulink} from "./helper/edulinkHelp";
+
 
 SplashScreen.preventAutoHideAsync();
 
