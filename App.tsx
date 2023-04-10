@@ -12,7 +12,7 @@ import storage from "./storage/storage";
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-	const [screen, changeScreen] = useState(1);
+	const [screen, changeScreen] = useState(0);
 
 	// hide the checking of user data behind loading screen
 	const [appIsReady, setAppIsReady] = useState(false);
