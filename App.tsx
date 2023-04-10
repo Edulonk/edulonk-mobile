@@ -26,7 +26,7 @@ export default function App() {
 
 		async function prepare() {
 			try {
-				let username = await getUsername();
+				await getUsername();
 			} catch (e) {
 				console.warn(e);
 				changeScreen(0);
