@@ -34,6 +34,7 @@ export default function Login(props: loginProps) {
 			}
 			login()
 		})
+		return null;
 	} else {
 		async function login() {
 			await storage.save({
