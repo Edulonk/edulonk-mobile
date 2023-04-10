@@ -1,11 +1,7 @@
 import {StyleSheet, Text, View, TextInput, Button} from "react-native";
 import React, {useState} from "react";
 import storage from "../storage/storage";
-import {Edulink} from "edulinkone-api";
-
-
-export let edulink: Edulink;
-
+import {createEdulink, edulink} from "../helper/edulinkHelp";
 
 type loginProps = {
 	changeScreen: React.Dispatch<React.SetStateAction<number>>,
@@ -39,7 +35,7 @@ export default function Login(props: loginProps) {
 			expires: null
 		});
 
-		edulink = new Edulink(school, username, password, 2);
+		createEdulink(username, password, school)
 		await edulink.Authenticate();
 		if (edulink.isAuthenticated) {
 			props.changeScreen(1);

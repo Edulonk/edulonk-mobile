@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {View, Text, StyleSheet, Button, ScrollView} from 'react-native';
-import {edulink} from "./Login";
+import {edulink} from "../helper/edulinkHelp";
 import storage from "../storage/storage";
 import Section from "../components/homework/Section";
 
