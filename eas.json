@@ -1,0 +1,16 @@
+{
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "android": {
+        "credentialsSource": "local"
+      }
+    },
+    "production": {
+      "android": {
+        "credentialsSource": "local"
+      }
+    }
+  }
+}
