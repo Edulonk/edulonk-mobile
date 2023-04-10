@@ -24,15 +24,13 @@ export default function App() {
 	useEffect(() => {
 
 		async function checkData() {
-		 	await storage.load({
-				key: 'username'
-			}).then(data => {setUsername(data.user)});
-		 	await storage.load({
-				key: 'password'
-			}).then(data => {setPassword(data.pass)});
 			await storage.load({
-				key: 'schoolId'
-			}).then(data => {setSchoolId(data.sch)});
+				key: 'loginData'
+			}).then(data => {
+				setUsername(data.username);
+				setPassword(data.password);
+				setSchoolId(data.schoolId);
+			})
 		}
 
 		async function prepare() {
