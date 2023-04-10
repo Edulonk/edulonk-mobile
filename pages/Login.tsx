@@ -2,6 +2,7 @@ import {StyleSheet, Text, View, TextInput, Button} from "react-native";
 import React, {useEffect, useState} from "react";
 import storage from "../storage/storage";
 import {Edulink} from "edulinkone-api";
+import {Checkbox} from "expo-checkbox";
 
 
 export let edulink: Edulink;
@@ -61,6 +62,10 @@ export default function Login(props: loginProps) {
 				<TextInput placeholder="School Id" style={styles.input} onChangeText={onSetSchoolId}></TextInput>
 				<TextInput placeholder="Username" style={styles.input} onChangeText={onSetUser}></TextInput>
 				<TextInput placeholder="Password" style={styles.input} textContentType="password" secureTextEntry={true} onChangeText={onSetPass}></TextInput>
+				<View>
+					<Checkbox/>
+					<Text>Remember me?</Text>
+				</View>
 				<View style={styles.button}>
 					<Button title={"log in"} onPress={login} color={"#4285F4"}/>
 				</View>
