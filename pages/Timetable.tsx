@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, Animated, Button} from 'react-native';
 
-import {edulink} from "../helper/edulinkHelp";
+import {edulink} from "./Login";
 import storage from "../storage/storage";
 import Day from "../components/timetable/Day";
 import ScrollView = Animated.ScrollView;
