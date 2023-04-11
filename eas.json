@@ -7,6 +7,11 @@
         "credentialsSource": "local"
       }
     },
+    "preview": {
+      "android": {
+        "credentialsSource": "local"
+      }
+    },
     "production": {
       "android": {
         "credentialsSource": "local"
