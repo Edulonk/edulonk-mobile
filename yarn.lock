@@ -4001,10 +4001,10 @@ dot-case@^3.0.4:
     no-case "^3.0.4"
     tslib "^2.0.3"
 
-edulinkone-api@^1.1.6:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/edulinkone-api/-/edulinkone-api-1.1.6.tgz#63181067076080b6b80a1a86480d1313d1d49c6f"
-  integrity sha512-i2aVfuKNUM9aFJnpQ6sgKfN0fjOpKwKjGQi5Fl9nOaS8W3p8D5nde4o+0GJJ9cSiH3/8scc/SDY1Bi2yO/PFCA==
+edulinkone-api@1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/edulinkone-api/-/edulinkone-api-1.1.7.tgz#86d0acb50d730db6bca64d5029fe0d45fa1af032"
+  integrity sha512-wOjdZEeccAFm7y9xfTvYtKDfAS35H4+S3YpUwxj0jXSoQS2AXMLQ6wwY6gu6wDespq7AYf3T07TWvtXD7uNHpQ==
   dependencies:
     "@types/node" "^18.15.1"
     typescript "^4.9.5"
